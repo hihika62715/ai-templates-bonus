@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="noindex">
+<title>Web特典トップ｜メール・資料・議事録のAI自動化テンプレート</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <h1>メール・資料・議事録のAI自動化テンプレート</h1>
+  <div class="subtitle">Web特典ページ</div>
+</header>
+
+<main class="container">
+
+  <h2 class="page-title">読者限定Web特典トップ</h2>
+  <p class="page-lead">本書をお読みいただきありがとうございます。本ページでは、書籍でお約束した4つの特典をご利用いただけます。下のカードから選んでお使いください。</p>
+
+  <div class="notice">
+    <strong>📱 スマホでのご利用について</strong>
+    本ページはスマートフォンでの閲覧・操作を前提に設計されています。コピーボタンが反応しない場合は、表示されたテキストを長押し → 全選択 → コピーでもご利用いただけます。
+  </div>
+
+  <div class="benefit-cards">
+    <a href="prompts.html" class="benefit-card">
+      <div class="benefit-card-num">特典 01</div>
+      <h3 class="benefit-card-title"><span class="benefit-card-emoji">📚</span>そのまま使えるプロンプト集（30選）</h3>
+      <p class="benefit-card-desc">事務職の日常で「困った」場面別に、AIに渡すプロンプトを30本収録。コピペして自分のAIに貼り付けて使う形式。</p>
+      <div class="benefit-card-meta">7カテゴリ・30本<span class="arrow">›</span></div>
+    </a>
+
+    <a href="templates.html" class="benefit-card coral">
+      <div class="benefit-card-num">特典 02</div>
+      <h3 class="benefit-card-title"><span class="benefit-card-emoji">📝</span>コピペ不要のテンプレート（14本）</h3>
+      <p class="benefit-card-desc">書籍の巻末付録テンプレ全14本を、フォームに入力するだけで完成プロンプトが出来上がる形に。</p>
+      <div class="benefit-card-meta">メール5本／議事録2本／資料7本<span class="arrow">›</span></div>
+    </a>
+
+    <a href="checklist.html" class="benefit-card gold">
+      <div class="benefit-card-num">特典 03</div>
+      <h3 class="benefit-card-title"><span class="benefit-card-emoji">✅</span>時短チェックリスト</h3>
+      <p class="benefit-card-desc">あなたの業務がどれくらいAIで時短できるか、20項目の質問でセルフチェック。結果は自動保存。</p>
+      <div class="benefit-card-meta">所要3分<span class="arrow">›</span></div>
+    </a>
+
+    <a href="starter.html" class="benefit-card green">
+      <div class="benefit-card-num">特典 04</div>
+      <h3 class="benefit-card-title"><span class="benefit-card-emoji">🚀</span>すぐ試せるスターターセット</h3>
+      <p class="benefit-card-desc">「AI業務利用が初めて」「何から試せばいいか分からない」方向け。最初に試す5本を厳選。</p>
+      <div class="benefit-card-meta">5本<span class="arrow">›</span></div>
+    </a>
+  </div>
+
+  <div class="notice" style="margin-top: 24px;">
+    <strong>🆘 急ぎ・困ったとき</strong>
+    各ページ右下のSOSボタンから、ミス発覚時・締切超過・クレーム対応など、トラブル時に頼れる5本に直接アクセスできます。
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <span class="book-title">『メール・資料・議事録のAI自動化テンプレート』</span>
+  読者限定Web特典 / 配布・転載はご遠慮ください
+</footer>
+
+<button type="button" id="sos-fab" class="sos-fab" aria-label="SOSパネルを開く">
+  <span class="sos-icon">🆘</span>
+  <span class="sos-label">SOS</span>
+</button>
+
+<div id="sos-overlay" class="sos-overlay" aria-modal="true" role="dialog">
+  <div class="sos-panel">
+    <div class="sos-panel-header">
+      <h3 class="sos-panel-title">急ぎ・困ったとき</h3>
+      <button type="button" id="sos-close" class="sos-close" aria-label="閉じる">✕</button>
+    </div>
+    <p class="desc">トラブル時に頼れる5本</p>
+    <div id="sos-list"></div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/templates.js"></script>
+<script>
+window.initSOS();
+window.renderSOSList('sos-list', 'index');
+</script>
+
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="noindex">
+<title>特典④ スターターセット｜Web特典</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <h1>メール・資料・議事録のAI自動化テンプレート</h1>
+  <div class="subtitle">Web特典ページ</div>
+</header>
+
+<main class="container">
+
+  <h2 class="page-title">特典④ すぐ試せるスターターセット（5本）</h2>
+  <p class="page-lead">「AIを業務で使うのが初めて」「何から試したらいいか分からない」という方へ。書籍と特典①②から、最初に試してほしい5本を厳選しました。今日のうちに1本でも使えれば成功です。</p>
+
+  <div class="starter-intro">
+    <strong>まずこの順番で試してみてください。</strong>
+    <div class="starter-step"><span class="starter-step-num">1</span><span>下のプロンプトを「📋 コピー」ボタンでコピー</span></div>
+    <div class="starter-step"><span class="starter-step-num">2</span><span>ChatGPT・Claude・Geminiなど普段使うAIに貼り付け</span></div>
+    <div class="starter-step"><span class="starter-step-num">3</span><span>【○○】の部分を自分の状況に書き換えて送信／フォーム式は各欄を埋めてからコピー</span></div>
+  </div>
+
+  <div id="template-list"></div>
+
+  <nav class="footer-nav">
+    <div class="footer-nav-title">慣れてきたら</div>
+    <div class="footer-nav-links">
+      <a href="prompts.html">特典① 30本のプロンプト集へ</a>
+      <a href="templates.html">特典② フォーム式テンプレ14本へ</a>
+      <a href="checklist.html">特典③ 時短チェックリスト</a>
+    </div>
+    <a href="index.html" class="back-to-top">▲ トップへ戻る</a>
+  </nav>
+
+</main>
+
+<footer class="site-footer">
+  <span class="book-title">『メール・資料・議事録のAI自動化テンプレート』</span>
+  読者限定Web特典 / 配布・転載はご遠慮ください
+</footer>
+
+<button type="button" id="sos-fab" class="sos-fab" aria-label="SOSパネルを開く">
+  <span class="sos-icon">🆘</span>
+  <span class="sos-label">SOS</span>
+</button>
+
+<div id="sos-overlay" class="sos-overlay" aria-modal="true" role="dialog">
+  <div class="sos-panel">
+    <div class="sos-panel-header">
+      <h3 class="sos-panel-title">急ぎ・困ったとき</h3>
+      <button type="button" id="sos-close" class="sos-close" aria-label="閉じる">✕</button>
+    </div>
+    <p class="desc">トラブル時に頼れる5本</p>
+    <div id="sos-list"></div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/templates.js"></script>
+<script src="js/situations-data.js"></script>
+<script src="js/templates-data.js"></script>
+<script>
+// 特典①②から STARTER_PICKS のIDで指定された5本を抽出
+var allPrompts = window.SITUATIONS_DATA.prompts.concat(window.TEMPLATES_DATA.prompts);
+var picks = window.STARTER_PICKS.map(function(id) {
+  for (var i = 0; i < allPrompts.length; i++) {
+    if (allPrompts[i].id === id) return allPrompts[i];
+  }
+  return null;
+}).filter(function(p) { return p !== null; });
+
+// 番号を1-5に振り直し
+picks.forEach(function(p, i) {
+  p = Object.assign({}, p);  // コピー
+  p.num = 'STARTER 0' + (i + 1);
+  picks[i] = p;
+});
+
+window.renderTemplates(picks, 'template-list', 'starter');
+window.initSOS();
+window.initHashScroll();
+window.initPointToggles();
+window.renderSOSList('sos-list', 'starter');
+</script>
+
+</body>
+</html>

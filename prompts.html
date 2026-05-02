@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="noindex">
+<title>特典① シチュエーション別プロンプト集｜Web特典</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <h1>メール・資料・議事録のAI自動化テンプレート</h1>
+  <div class="subtitle">Web特典ページ</div>
+</header>
+
+<main class="container">
+
+  <h2 class="page-title">特典① そのまま使えるプロンプト集（30選）</h2>
+  <p class="page-lead">事務職の日常で「困った」「整理したい」と思う場面別に、AIに渡すプロンプトを30本収録。コピーして自分のChatGPT／Claude／Geminiに貼り付け、（　）の中を書き換えて使ってください。</p>
+
+  <div class="notice">
+    <strong>📋 使い方</strong>
+    各プロンプトの「📋 このプロンプトをコピー」ボタンを押す → AIに貼り付け → <span class="placeholder">【○○】</span> の部分を自分の状況に書き換えて送信。お気に入り（★）はブラウザに保存されます。
+  </div>
+
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input type="search" class="search-input" id="search-input" placeholder="検索（例：会議／謝罪／忙しい）" autocomplete="off">
+    <button type="button" class="search-clear" id="search-clear" aria-label="検索を消去">✕</button>
+  </div>
+  <div class="search-no-result" id="search-no-result">該当するプロンプトが見つかりませんでした</div>
+
+  <details class="favs-panel" id="favs-panel">
+    <summary>
+      <span class="fav-star-icon">★</span>
+      <span>お気に入り</span>
+      <span class="fav-count">0</span>
+    </summary>
+    <div class="favs-list"></div>
+  </details>
+
+  <!-- カテゴリジャンプ -->
+  <nav class="cat-nav" id="cat-nav" aria-label="カテゴリ"></nav>
+
+  <div id="template-list"></div>
+
+  <nav class="footer-nav">
+    <div class="footer-nav-title">他のページへ</div>
+    <div class="footer-nav-links">
+      <a href="index.html">トップへ戻る</a>
+      <a href="prompts.html" class="current">特典① プロンプト集</a>
+      <a href="templates.html">特典② テンプレート</a>
+      <a href="checklist.html">特典③ チェックリスト</a>
+      <a href="starter.html">特典④ スターター</a>
+    </div>
+    <a href="index.html" class="back-to-top">▲ トップへ戻る</a>
+  </nav>
+
+</main>
+
+<footer class="site-footer">
+  <span class="book-title">『メール・資料・議事録のAI自動化テンプレート』</span>
+  読者限定Web特典 / 配布・転載はご遠慮ください
+</footer>
+
+<button type="button" id="sos-fab" class="sos-fab" aria-label="SOSパネルを開く">
+  <span class="sos-icon">🆘</span>
+  <span class="sos-label">SOS</span>
+</button>
+
+<div id="sos-overlay" class="sos-overlay" aria-modal="true" role="dialog">
+  <div class="sos-panel">
+    <div class="sos-panel-header">
+      <h3 class="sos-panel-title">急ぎ・困ったとき</h3>
+      <button type="button" id="sos-close" class="sos-close" aria-label="閉じる">✕</button>
+    </div>
+    <p class="desc">トラブル時に頼れる5本</p>
+    <div id="sos-list"></div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/templates.js"></script>
+<script src="js/situations-data.js"></script>
+<script>
+var DATA = window.SITUATIONS_DATA;
+window.renderCategoryNav('cat-nav', DATA.categories, DATA.prompts);
+window.renderTemplates(DATA.prompts, 'template-list', 'prompts', {
+  showCategoryHeaders: true,
+  categories: DATA.categories
+});
+window.renderFavsPanel('favs-panel', 'prompts');
+window.initSearch('search-input', 'search-clear', 'search-no-result');
+window.initSOS();
+window.initHashScroll();
+window.initPointToggles();
+window.renderSOSList('sos-list', 'prompts');
+</script>
+
+</body>
+</html>

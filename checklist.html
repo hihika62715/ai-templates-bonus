@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="format-detection" content="telephone=no">
+<meta name="robots" content="noindex">
+<title>時短チェックリスト｜Web特典</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <h1>メール・資料・議事録のAI自動化テンプレート</h1>
+  <div class="subtitle">Web特典ページ</div>
+</header>
+
+<main class="container">
+
+  <h2 class="page-title">時短チェックリスト</h2>
+  <p class="page-lead">該当する項目をタップしてください。チェック数で、あなたの週あたりの「時間の損失」を診断します。チェック内容は自動保存されます。</p>
+
+  <div class="notice">
+    <strong>⚠ データの保存場所について</strong>
+    チェック状態はお使いのブラウザ内（localStorage）に保存されます。ブラウザのキャッシュを消したり、別の端末・別ブラウザで開いた場合は引き継がれません。シークレットモードでは保存されない場合があります。
+  </div>
+
+  <section class="checklist-section">
+    <h3>📧 メール</h3>
+    <label class="check-item">
+      <input type="checkbox" data-store="cl_m1" class="cl-check">
+      <span class="label-text">同じような文面を毎回ゼロから書いている</span>
+    </label>
+    <label class="check-item">
+      <input type="checkbox" data-store="cl_m2" class="cl-check">
+      <span class="label-text">「どう書き出そうか」で手が止まる</span>
+    </label>
+    <label class="check-item">
+      <input type="checkbox" data-store="cl_m3" class="cl-check">
+      <span class="label-text">返信を後回しにして夕方まとめて対応している</span>
+    </label>
+    <label class="check-item">
+      <input type="checkbox" data-store="cl_m4" class="cl-check">
+      <span class="label-text">丁寧に書きすぎて1通15分かかることがある</span>
+    </label>
+  </section>
+
+  <section class="checklist-section">
+    <h3>📝 議事録</h3>
+    <label class="check-item">
+      <input type="checkbox" data-store="cl_g1" class="cl-check">
+      <span class="label-text">会議中のメモを清書するのに30分以上かかる</span>
+    </label>
+    <label class="check-item">
+      <input type="checkbox" data-store="cl_g2" class="cl-check">
+      <span class="label-text">「誰が何を言ったか」を思い出せない</span>
+    </label>
+    <label class="check-item">
+      <input type="checkbox" data-store="cl_g3" class="cl-check">
+      <span class="label-text">提出が翌日以降になることがある</span>
+    </label>
+    <label class="check-item">
+      <input type="checkbox" data-store="cl_g4" class="cl-check">
+      <span class="label-text">議事録係で会議に集中できない</span>
+    </label>
+  </section>
+
+  <section class="checklist-section">
+    <h3>📄 資料作成</h3>
+    <label class="check-item">
+      <input type="checkbox" data-store="cl_s1" class="cl-check">
+      <span class="label-text">週報の集計に毎回1時間以上かかる</span>
+    </label>
+    <label class="check-item">
+      <input type="checkbox" data-store="cl_s2" class="cl-check">
+      <span class="label-text">上司に「方向性が違う」と差し戻された経験がある</span>
+    </label>
+    <label class="check-item">
+      <input type="checkbox" data-store="cl_s3" class="cl-check">
+      <span class="label-text">体裁調整に時間をかけすぎる</span>
+    </label>
+    <label class="check-item">
+      <input type="checkbox" data-store="cl_s4" class="cl-check">
+      <span class="label-text">過去資料をコピーして少し変えるだけの作業を繰り返している</span>
+    </label>
+  </section>
+
+  <div class="result-box" role="status" aria-live="polite">
+    <div class="count-label">あなたのチェック数</div>
+    <div class="count-num"><span id="check-count">0</span><span class="total"> / 12</span></div>
+    <div class="verdict" id="verdict">
+      <strong id="verdict-title">まだチェック中</strong>
+      <span id="verdict-detail">該当する項目をタップしてください</span>
+    </div>
+  </div>
+
+  <button type="button" id="reset-btn" class="btn reset-btn">チェックを全てリセット</button>
+
+  <h2 class="section-title">次のアクション</h2>
+  <p style="font-size:0.95rem; margin-bottom:14px;">該当数が多かった方ほど、テンプレートの効果が出ます。最も時間を奪われているカテゴリから始めてください。</p>
+
+  <nav class="footer-nav">
+    <div class="footer-nav-title">他のページへ</div>
+    <div class="footer-nav-links">
+      <a href="index.html">トップへ戻る</a>
+      <a href="prompts.html">特典① プロンプト集</a>
+      <a href="templates.html">特典② テンプレート</a>
+      <a href="checklist.html" class="current">特典③ チェックリスト</a>
+      <a href="starter.html">特典④ スターター</a>
+    </div>
+    <a href="index.html" class="back-to-top">▲ トップへ戻る</a>
+  </nav>
+
+</main>
+
+<footer class="site-footer">
+  <span class="book-title">『メール・資料・議事録のAI自動化テンプレート』</span>
+  読者限定Web特典 / 配布・転載はご遠慮ください
+</footer>
+
+<button type="button" id="sos-fab" class="sos-fab" aria-label="SOSパネルを開く">
+  <span class="sos-icon">🆘</span>
+  <span class="sos-label">SOS</span>
+</button>
+
+<div id="sos-overlay" class="sos-overlay" aria-modal="true" role="dialog">
+  <div class="sos-panel">
+    <div class="sos-panel-header">
+      <h3 class="sos-panel-title">急ぎ・困ったとき</h3>
+      <button type="button" id="sos-close" class="sos-close" aria-label="閉じる">✕</button>
+    </div>
+    <p class="desc">よく使う5本のプロンプトに直接アクセス</p>
+    <div id="sos-list"></div>
+  </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/templates.js"></script>
+<script>
+(function() {
+  var checkboxes = document.querySelectorAll('.cl-check');
+  var countEl = document.getElementById('check-count');
+  var verdictTitle = document.getElementById('verdict-title');
+  var verdictDetail = document.getElementById('verdict-detail');
+  var resetBtn = document.getElementById('reset-btn');
+
+  function updateResult() {
+    var count = 0;
+    checkboxes.forEach(function(cb) {
+      if (cb.checked) count++;
+    });
+    countEl.textContent = count;
+
+    if (count === 0) {
+      verdictTitle.textContent = 'まだチェック中';
+      verdictDetail.textContent = '該当する項目をタップしてください';
+    } else if (count <= 4) {
+      verdictTitle.textContent = '週3〜5時間の損失';
+      verdictDetail.textContent = '改善の余地あり。1つのテンプレから始めて効果を確認しましょう';
+    } else if (count <= 8) {
+      verdictTitle.textContent = '週5〜10時間の損失';
+      verdictDetail.textContent = '深刻な時間泥棒。3つ全カテゴリのテンプレを段階的に導入を';
+    } else {
+      verdictTitle.textContent = '週10時間超の損失';
+      verdictDetail.textContent = '丸1日以上が消えています。まず最も頻度の高い作業から自動化を';
+    }
+  }
+
+  // 初期化時とチェック変更時に更新
+  setTimeout(updateResult, 0); // localStorage復元後に実行
+  checkboxes.forEach(function(cb) {
+    cb.addEventListener('change', updateResult);
+  });
+
+  // リセット
+  resetBtn.addEventListener('click', function() {
+    if (confirm('全てのチェックをリセットします。よろしいですか？')) {
+      checkboxes.forEach(function(cb) {
+        cb.checked = false;
+        var key = 'wb_' + cb.getAttribute('data-store');
+        try { localStorage.removeItem(key); } catch(e) {}
+      });
+      updateResult();
+      window.showToast('リセットしました');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
